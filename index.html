@@ -3,417 +3,494 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Landing Page</title>
+    <title>Xstream Flex - Launch Your Idea Fast</title>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xstream Flex - Idea Launch Platform</title>
-    <meta name="description" content="Take your ideas to full live launch in days not weeks with Xstream Flex">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #00ff00, #00cc00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .rocket-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
-        .float-animation {
-            animation: float 3s ease-in-out infinite;
+        
+        .package-card {
+            transition: all 0.3s ease;
+            border: 1px solid #333;
         }
-        .hover-scale {
-            transition: transform 0.3s ease-in-out;
+        
+        .package-card:hover {
+            transform: translateY(-5px);
+            border-color: #00ff00;
+            box-shadow: 0 10px 25px rgba(0, 255, 0, 0.1);
         }
-        .hover-scale:hover {
-            transform: scale(1.03);
+        
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
         }
     </style>
 </head>
-<body class="antialiased bg-white">
-    <!-- Announcement Bar -->
-    <div class="bg-gray-900 text-white py-2 text-center text-sm animate-pulse">
-        <p>🚀 Fast Worldwide Shipping (5 days delivery) 🌍</p>
-    </div>
-
-    <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white shadow-md">
-        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0">
-                    <a href="https://IanSR86.github.io/xstream-flex--the-idea-launch-platform-2025-07-17-2oy8a" class="text-2xl font-bold text-gray-900 hover:text-indigo-600 transition-colors duration-300">XstreamFlex</a>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-black border-b border-gray-800 fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-2xl font-bold gradient-text">Xstream Flex</span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#home" class="text-green-400 hover:text-green-300 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            <a href="#packages" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium">Packages</a>
+                            <a href="#blog" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium">Blog</a>
+                            <a href="#legal" class="text-gray-300 hover:text-green-400 px-3 py-2 rounded-md text-sm font-medium">Legal</a>
+                        </div>
+                    </div>
+                </a>
+                <div class="hidden md:block">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        <button class="bg-green-500 hover:bg-green-600 text-black px-4 py-2 rounded-md text-sm font-medium transition duration-300">
+                            Get Started
+                        </button>
+                    </div>
                 </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="#features" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Features</a>
-                    <a href="#benefits" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Benefits</a>
-                    <a href="#testimonials" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Testimonials</a>
-                    <a href="#about" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">About</a>
-                    <a href="#faq" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">FAQ</a>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
                 </div>
-
-                <!-- Mobile Menu Button -->
-                <button class="mobile-menu-button md:hidden" aria-label="Open menu">
-                    <i class="fas fa-bars text-2xl text-gray-600"></i>
-                </button>
-
-                <div>
-                    <a href="https://pay.xstreamflex.com/order/starterlaunch/" 
-                       class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg">
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black border-t border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="text-green-400 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#packages" class="text-gray-300 hover:text-green-400 block px-3 py-2 rounded-md text-base font-medium">Packages</a>
+                <a href="#blog" class="text-gray-300 hover:text-green-400 block px-3 py-2 rounded-md text-base font-medium">Blog</a>
+                <a href="#legal" class="text-gray-300 hover:text-green-400 block px-3 py-2 rounded-md text-base font-medium">Legal</a>
+            </div>
+            <div class="pt-4 pb-3 border-t border-gray-700">
+                <div class="flex items-center px-5">
+                    <button class="bg-green-500 hover:bg-green-600 text-black px-4 py-2 rounded-md text-sm font-medium w-full transition duration-300">
                         Get Started
-                    </a>
+                    </button>
                 </div>
             </div>
-
-            <!-- Mobile Menu Dropdown -->
-            <div class="mobile-menu hidden md:hidden bg-white border-t mt-2 py-2">
-                <a href="#features" class="block px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors duration-300">Features</a>
-                <a href="#benefits" class="block px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors duration-300">Benefits</a>
-                <a href="#testimonials" class="block px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors duration-300">Testimonials</a>
-                <a href="#about" class="block px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors duration-300">About</a>
-                <a href="#faq" class="block px-4 py-2 text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 transition-colors duration-300">FAQ</a>
-            </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1504093376055-b3094b674dcb?w=1600&h=900&fit=crop&q=80" 
-                 alt="Hero background" 
-                 class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/70"></div>
-        </div>
-        <div class="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight float-animation">
-                Xstream Flex, the Idea Launch Platform
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-200 mb-8">
-                Take your ideas to full live launch in days not weeks
-            </p>
-            <a href="https://pay.xstreamflex.com/order/starterlaunch/" 
-               class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                Launch Your Idea Now
-                <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                </svg>
-            </a>
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        <span class="gradient-text">Launch Your Idea</span><br>
+                        <span class="text-white">At Warp Speed</span>
+                    </h1>
+                    <p class="text-lg text-gray-300 mb-8">
+                        Everything you need to launch your digital product or course. Fast. 
+                        No tech headaches, just results. Get from idea to revenue in record time.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="bg-green-500 hover:bg-green-600 text-black px-6 py-3 rounded-md font-medium transition duration-300">
+                            Get Started
+                        </button>
+                        <button class="border border-green-500 text-green-500 hover:bg-green-500 hover:text-black px-6 py-3 rounded-md font-medium transition duration-300">
+                            Compare Packages
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute inset-0 bg-green-500 rounded-full opacity-20 blur-xl"></div>
+                        <div class="relative rocket-animation">
+                            <img src="https://img.icons8.com/ios-filled/512/rocket.png" alt="Rocket launching" class="w-full h-auto filter brightness-0 invert" style="filter: invert(77%) sepia(29%) saturate(1404%) hue-rotate(67deg) brightness(102%) contrast(101%);">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="py-24 bg-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">
-                Everything You Need to Launch
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:bg-indigo-50">
-                    <div class="text-indigo-600 mb-4 float-animation">
-                        <i class="fas fa-globe text-3xl"></i>
+    <section class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Why Choose Xstream Flex?</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">We remove the friction between your idea and your first paying customer</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 p-8 rounded-lg border border-gray-800 hover:border-green-500 transition duration-300">
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-black text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Complete Website</h3>
-                    <p class="text-gray-600">Launch a professional website with all the features you need to succeed online, including custom domains, SSL security, and mobile optimization.</p>
+                    <h3 class="text-xl font-bold mb-3">Lightning Fast Setup</h3>
+                    <p class="text-gray-400">Go from idea to launch in days, not months. Our streamlined process gets you up and running at warp speed.</p>
                 </div>
-                <!-- Feature 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:bg-indigo-50">
-                    <div class="text-indigo-600 mb-4 float-animation">
-                        <i class="fas fa-graduation-cap text-3xl"></i>
+                
+                <div class="bg-gray-900 p-8 rounded-lg border border-gray-800 hover:border-green-500 transition duration-300">
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-tools text-black text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Course or Product</h3>
-                    <p class="text-gray-600">Create and sell digital products or courses with our integrated platform, featuring secure content delivery and student management tools.</p>
+                    <h3 class="text-xl font-bold mb-3">All-In-One Toolkit</h3>
+                    <p class="text-gray-400">Website, payments, course builder, email marketing - everything you need in one integrated platform.</p>
                 </div>
-                <!-- Feature 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:bg-indigo-50">
-                    <div class="text-indigo-600 mb-4 float-animation">
-                        <i class="fas fa-credit-card text-3xl"></i>
+                
+                <div class="bg-gray-900 p-8 rounded-lg border border-gray-800 hover:border-green-500 transition duration-300">
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-black text-xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4">Payment/Delivery</h3>
-                    <p class="text-gray-600">Seamless payment processing and instant digital delivery systems with support for multiple currencies and payment methods.</p>
+                    <h3 class="text-xl font-bold mb-3">Proven Conversion</h3>
+                    <p class="text-gray-400">Optimized funnels and templates designed to maximize conversions from day one.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section id="benefits">
-        <!-- Benefit 1 -->
-        <div class="bg-white py-16">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div class="order-2 md:order-1">
-                        <h3 class="text-3xl font-bold mb-4">Lightning Fast Launch</h3>
-                        <p class="text-gray-600 mb-6">Experience unprecedented speed with our optimized platform. Go from concept to live launch in just days, not weeks or months. Our streamlined process eliminates technical hurdles and bureaucratic delays, letting you focus on what matters - your business.</p>
-                        <a href="https://pay.xstreamflex.com/order/starterlaunch/" 
-                           class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg">
-                            Get Started
-                            <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
+    <!-- Packages Section -->
+    <section id="packages" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Choose Your Launch Package</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Simple pricing for fast results</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Starter Package -->
+                <a href="https://pay.xstreamflex.com/order/starterlaunch/" class="package-card bg-black p-8 rounded-lg relative overflow-hidden block hover:no-underline">
+                    <div class="absolute top-0 right-0 bg-green-500 text-black px-4 py-1 text-sm font-bold">
+                        MOST POPULAR
                     </div>
-                    <div class="order-1 md:order-2">
-                        <img src="https://images.unsplash.com/photo-1556740714-a8395b3bf30f?w=800&h=600&fit=crop&q=80" 
-                             alt="Lightning Fast" 
-                             class="rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 hover:scale-105 transform">
+                    <h3 class="text-2xl font-bold mb-2">Starter Launch</h3>
+                    <p class="text-gray-400 mb-6">Perfect for creators who want to DIY with our powerful tools</p>
+                    
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold gradient-text">$500</span>
+                        <span class="text-gray-400">one-time</span>
                     </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <span class="feature-icon"><i class="fas fa-check text-black text-xs"></i></span>
+                            <span>Custom Website Setup</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="feature-icon"><i class="fas fa-check text-black text-xs"></i></span>
+                            <span>Payment Processor Integration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="feature-icon"><i class="fas fa-check text-black text-xs"></i></span>
+                            <span>Course Builder Access</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="feature-icon"><i class="fas fa-check text-black text-xs"></i></span>
+                            <span>Email Marketing Tool</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="feature-icon"><i class="fas fa-check text-black text-xs"></i></span>
+                            <span>Basic Training Videos</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="w-full bg-green-500 hover:bg-green-600 text-black px-6 py-3 rounded-md font-medium transition duration-300 text-center">
+                        Select Starter
+                    </div>
+                </a>
+                
+                <!-- Turn Key Package -->
+                <a href="https://pay.xstreamflex.com/order/Turnkeylaunch/" class="package-card bg-black p-8 rounded-lg border border-green-500 block hover:no-underline">
+                    <h3 class="text-2xl font-bold mb-2">Turn Key Custom</h3>
+                    <p class="text-gray-400 mb-6">We handle everything so you can focus on your content</p>
+                    
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold gradient-text">$1000</span>
+                        <span class="text-gray-400">one-time</span>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <span class="feature-icon"><i class="fas fa-check text-black text-xs"></i></span>
+                            <span><strong>Everything in Starter</strong></span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="feature-icon"><i class="fas fa-check text-black text-xs"></i></span>
+                            <span>Complete Course Setup</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="feature-icon"><i class="fas fa-check text-black text-xs"></i></span>
+                            <span>First Email Campaign Creation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="feature-icon"><i class="fas fa-check text-black text-xs"></i></span>
+                            <span>Client Management Email Sequences</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="feature-icon"><i class="fas fa-check text-black text-xs"></i></span>
+                            <span>1 Hour Strategy Consultation</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full bg-green-500 hover:bg-green-600 text-black px-6 py-3 rounded-md font-medium transition duration-300">
+                        Go Custom
+                    </button>
                 </div>
             </div>
-        </div>
-
-        <!-- Benefit 2 -->
-        <div class="bg-gray-50 py-16">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?w=800&h=600&fit=crop&q=80" 
-                             alt="Full Launch" 
-                             class="rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 hover:scale-105 transform">
-                    </div>
-                    <div>
-                        <h3 class="text-3xl font-bold mb-4">Complete Launch Solution</h3>
-                        <p class="text-gray-600 mb-6">Get everything you need for a successful digital presence in one comprehensive package. From professional website design to secure payment processing, automated delivery systems, and marketing tools - we've got you covered. No need to piece together multiple services or deal with complex integrations.</p>
-                        <a href="https://pay.xstreamflex.com/order/starterlaunch/" 
-                           class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg">
-                            Launch Now
-                            <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Benefit 3 -->
-        <div class="bg-white py-16">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div class="order-2 md:order-1">
-                        <h3 class="text-3xl font-bold mb-4">Built-in SEO Optimization</h3>
-                        <p class="text-gray-600 mb-6">Dominate search results with our advanced SEO features. Every page is optimized for maximum visibility, including structured data, automated sitemaps, meta tag optimization, and performance tuning. Our platform ensures your content ranks well and attracts organic traffic from day one.</p>
-                        <a href="https://pay.xstreamflex.com/order/starterlaunch/" 
-                           class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transform hover:scale-105 transition-all duration-300 shadow-md hover:shadow-lg">
-                            Start Ranking
-                            <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
-                    </div>
-                    <div class="order-1 md:order-2">
-                        <img src="https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?w=800&h=600&fit=crop&q=80" 
-                             alt="SEO Optimized" 
-                             class="rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 hover:scale-105 transform">
-                    </div>
+            
+            <!-- Comparison Table -->
+            <div class="mt-16 bg-black p-6 rounded-lg border border-gray-800">
+                <h3 class="text-xl font-bold mb-6 text-center">Package Comparison</h3>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-700">
+                        <thead>
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Feature</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Starter</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-400 uppercase tracking-wider">Turn Key</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-800">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">Website Setup</td>
+                                <td class="px-6 py-4 whitespace-nowrap"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="px-6 py-4 whitespace-nowrap"><i class="fas fa-check text-green-500"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">Payment Integration</td>
+                                <td class="px-6 py-4 whitespace-nowrap"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="px-6 py-4 whitespace-nowrap"><i class="fas fa-check text-green-500"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">Course Builder Access</td>
+                                <td class="px-6 py-4 whitespace-nowrap"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="px-6 py-4 whitespace-nowrap"><i class="fas fa-check text-green-500"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">Email Marketing Tool</td>
+                                <td class="px-6 py-4 whitespace-nowrap"><i class="fas fa-check text-green-500"></i></td>
+                                <td class="px-6 py-4 whitespace-nowrap"><i class="fas fa-check text-green-500"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">Course Content Setup</td>
+                                <td class="px-6 py-4 whitespace-nowrap"><i class="fas fa-times text-gray-500"></i></td>
+                                <td class="px-6 py-4 whitespace-nowrap"><i class="fas fa-check text-green-500"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">First Email Campaign</td>
+                                <td class="px-6 py-4 whitespace-nowrap"><i class="fas fa-times text-gray-500"></i></td>
+                                <td class="px-6 py-4 whitespace-nowrap"><i class="fas fa-check text-green-500"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">Client Email Sequences</td>
+                                <td class="px-6 py-4 whitespace-nowrap"><i class="fas fa-times text-gray-500"></i></td>
+                                <td class="px-6 py-4 whitespace-nowrap"><i class="fas fa-check text-green-500"></i></td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap">Strategy Consultation</td>
+                                <td class="px-6 py-4 whitespace-nowrap"><i class="fas fa-times text-gray-500"></i></td>
+                                <td class="px-6 py-4 whitespace-nowrap"><i class="fas fa-check text-green-500"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-24 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">What Our Clients Say</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    <div class="flex text-yellow-400 mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Why Fast Beats Fancy</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Insights to help you launch smarter</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800">
+                    <div class="h-48 bg-gradient-to-r from-green-500 to-green-700 flex items-center justify-center">
+                        <i class="fas fa-rocket text-6xl text-black opacity-50"></i>
                     </div>
-                    <p class="text-gray-600 mb-4">"Launched my online course in just 3 days! The platform handled everything from payment processing to content delivery. Made $50K in the first month."</p>
-                    <div class="border-t pt-4">
-                        <p class="font-semibold">Sarah Johnson</p>
-                        <p class="text-sm text-gray-500">Digital Marketing Coach</p>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">The Launch Speed Advantage</h3>
+                        <p class="text-gray-400 mb-4">Most creators get stuck in "perfect mode" - endlessly tweaking their course or product before launch. But speed to market is your greatest competitive advantage.</p>
+                        <a href="#" class="text-green-500 hover:text-green-400 font-medium inline-flex items-center">
+                            Read More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
                 
-                <!-- Testimonial 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    <div class="flex text-yellow-400 mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                <div class="bg-gray-900 rounded-lg overflow-hidden border border-gray-800">
+                    <div class="h-48 bg-gradient-to-r from-green-700 to-green-900 flex items-center justify-center">
+                        <i class="fas fa-tools text-6xl text-black opacity-50"></i>
                     </div>
-                    <p class="text-gray-600 mb-4">"The SEO features are incredible. Our site ranked on page 1 for our target keywords within weeks. Customer support is responsive and helpful."</p>
-                    <div class="border-t pt-4">
-                        <p class="font-semibold">Michael Chen</p>
-                        <p class="text-sm text-gray-500">Tech Startup Founder</p>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    <div class="flex text-yellow-400 mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 mb-4">"Finally, a platform that delivers on its promises. We switched from WordPress and haven't looked back. Sales increased by 300%."</p>
-                    <div class="border-t pt-4">
-                        <p class="font-semibold">Emma Davis</p>
-                        <p class="text-sm text-gray-500">eCommerce Manager</p>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 4 -->
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    <div class="flex text-yellow-400 mb-4">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 mb-4">"The automated delivery system saves us hours each week. Integration was smooth, and the platform is incredibly reliable."</p>
-                    <div class="border-t pt-4">
-                        <p class="font-semibold">David Wilson</p>
-                        <p class="text-sm text-gray-500">Digital Product Creator</p>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Tool Fatigue is Real</h3>
+                        <p class="text-gray-400 mb-4">The average creator tries 7 different platforms before finding one that works. Xstream Flex combines everything you need in one place, eliminating the integration headache.</p>
+                        <a href="#" class="text-green-500 hover:text-green-400 font-medium inline-flex items-center">
+                            Read More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section id="about" class="py-24 bg-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">About XstreamFlex</h2>
-            <div class="max-w-3xl mx-auto">
-                <p class="text-gray-600 mb-8 leading-relaxed">
-                    Founded in 2020 by a team of digital entrepreneurs who experienced firsthand the challenges of launching online businesses, XstreamFlex was born from the vision to simplify the digital launch process. Our founders spent years dealing with complicated tech stacks, unreliable platforms, and scattered solutions before deciding to create the all-in-one launch platform they wished existed.
-                </p>
-                <p class="text-gray-600 leading-relaxed">
-                    Our mission is to democratize digital entrepreneurship by providing creators, educators, and businesses with the tools they need to succeed online. We believe in transparency, continuous innovation, and putting our customers first. Our core values of simplicity, reliability, and excellence drive everything we do, from product development to customer support.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="py-24 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Frequently Asked Questions</h2>
-            <div class="max-w-3xl mx-auto space-y-6">
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    <h3 class="text-lg font-semibold mb-2">How long does it take to launch?</h3>
-                    <p class="text-gray-600">Most projects can be launched within 2-3 days of receiving your content. Our streamlined process ensures quick setup while maintaining quality and attention to detail.</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    <h3 class="text-lg font-semibold mb-2">What's included in the launch package?</h3>
-                    <p class="text-gray-600">Our comprehensive package includes a professional website, secure payment processing, automated content delivery, SEO optimization, analytics dashboard, email integration, and 24/7 technical support.</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    <h3 class="text-lg font-semibold mb-2">Do you offer ongoing support?</h3>
-                    <p class="text-gray-600">Yes, we provide 24/7 priority support via email at support@xstreamflex.com. Our average response time is under 2 hours, and we offer live chat support during business hours.</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    <h3 class="text-lg font-semibold mb-2">Can I customize my platform?</h3>
-                    <p class="text-gray-600">Absolutely! While our platform comes with beautiful pre-built templates, you can customize colors, fonts, layouts, and more. We also offer custom development for unique requirements.</p>
+            
+            <div class="mt-12 bg-gray-900 rounded-lg border border-gray-800 p-8">
+                <div class="md:flex items-center">
+                    <div class="md:w-1/2 mb-6 md:mb-0">
+                        <h3 class="text-2xl font-bold mb-4">Obstacles to Launching Your Digital Product</h3>
+                        <p class="text-gray-400">
+                            Many creators face the same challenges: technical setup, payment processing, content delivery, and marketing automation. 
+                            Xstream Flex solves all these problems with a single, streamlined solution that gets you from idea to revenue in days, not months.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <img src="https://img.icons8.com/ios/512/confused.png" alt="Frustrated creator" class="w-48 h-48 filter brightness-0 invert" style="filter: invert(77%) sepia(29%) saturate(1404%) hue-rotate(67deg) brightness(102%) contrast(101%);">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="relative py-24 bg-indigo-700">
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1600&h=800&fit=crop&q=80" 
-                 alt="CTA background" 
-                 class="w-full h-full object-cover opacity-20">
-            <div class="absolute inset-0 bg-gradient-to-r from-indigo-800 to-indigo-600 opacity-90"></div>
+    <section class="py-20 bg-gradient-to-r from-green-900 to-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Launch Your Idea?</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto mb-8">Stop wrestling with technology and start growing your business today.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <button class="bg-green-500 hover:bg-green-600 text-black px-8 py-4 rounded-md font-medium text-lg transition duration-300">
+                    Get Started Now
+                </button>
+                <button class="border border-green-500 text-green-500 hover:bg-green-500 hover:text-black px-8 py-4 rounded-md font-medium text-lg transition duration-300">
+                    Compare Packages
+                </button>
+            </div>
         </div>
-        <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">Ready to Launch Your Idea?</h2>
-            <p class="text-xl text-white mb-8">Join thousands of successful launches with XstreamFlex</p>
-            <a href="https://pay.xstreamflex.com/order/starterlaunch/" 
-               class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                Start Your Launch Today
-                <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                </svg>
-            </a>
+    </section>
+
+    <!-- Legal Links -->
+    <section id="legal" class="py-12 bg-black border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-900 p-6 rounded-lg border border-gray-800">
+                    <h3 class="text-xl font-bold mb-4">Privacy Policy</h3>
+                    <p class="text-gray-400 mb-4">We respect your data and privacy. Learn how we collect, use, and protect your information.</p>
+                    <button class="text-green-500 hover:text-green-400 font-medium inline-flex items-center">
+                        View Privacy Policy <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg border border-gray-800">
+                    <h3 class="text-xl font-bold mb-4">Terms of Use</h3>
+                    <p class="text-gray-400 mb-4">Understand the terms and conditions for using Xstream Flex services.</p>
+                    <button class="text-green-500 hover:text-green-400 font-medium inline-flex items-center">
+                        View Terms of Use <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">About XstreamFlex</h4>
-                    <p class="text-gray-400">The fastest way to launch your digital presence. Transform your ideas into reality with our comprehensive platform.</p>
+    <footer class="bg-black py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="flex justify-center md:order-2 space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-green-500">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-green-500">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-green-500">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-green-500">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
                 </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
-                    <p class="text-gray-400">Email: support@xstreamflex.com</p>
-                    <p class="text-gray-400">Phone: +1 (555) 123-4567</p>
-                    <p class="text-gray-400">Hours: 24/7 Support</p>
+                <div class="mt-8 md:mt-0 md:order-1">
+                    <p class="text-center text-base text-gray-400">
+                        &copy; 2023 Xstream Flex. All rights reserved.
+                    </p>
                 </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="https://IanSR86.github.io/xstream-flex--the-idea-launch-platform-2025-07-17-2oy8a/privacy.html" class="hover:text-white transition-colors duration-300">Privacy Policy</a></li>
-                        <li><a href="https://IanSR86.github.io/xstream-flex--the-idea-launch-platform-2025-07-17-2oy8a/terms.html" class="hover:text-white transition-colors duration-300">Terms of Service</a></li>
-                        <li><a href="https://IanSR86.github.io/xstream-flex--the-idea-launch-platform-2025-07-17-2oy8a/blog.html" class="hover:text-white transition-colors duration-300">Blog</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors duration-300">Refund Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Connect With Us</h4>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 transform hover:scale-110">
-                            <i class="fab fa-twitter text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 transform hover:scale-110">
-                            <i class="fab fa-facebook text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 transform hover:scale-110">
-                            <i class="fab fa-instagram text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 transform hover:scale-110">
-                            <i class="fab fa-linkedin text-2xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 XstreamFlex. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.querySelector('header nav .mobile-menu-button');
-            const mobileMenu = document.querySelector('header nav .mobile-menu');
-            
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                    const icon = mobileMenuButton.querySelector('i');
-                    if (icon) {
-                        icon.classList.toggle('fa-bars');
-                        icon.classList.toggle('fa-times');
-                    }
-                });
-
-                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-                mobileMenuLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                        const icon = mobileMenuButton.querySelector('i');
-                        if (icon) {
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    const menu = document.getElementById('mobile-menu');
+                    menu.classList.add('hidden');
+                    
+                    // Scroll to target
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add animation to package cards on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.package-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>
